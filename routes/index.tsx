@@ -16,7 +16,7 @@ export default function Home() {
         />
         <h1 class="mt-auto mb-auto">七五</h1>
       </header>
-      <main class="flex flex-col justify-center items-center w-[calc(100vw_-_64px)] pr-4 overflow-x-scroll">
+      <main class="flex flex-col items-center w-[calc(100vw_-_64px)] pr-4 overflow-x-scroll">
         {hyakuninIssyu.items.map((item) => <Card item={item} />)}
       </main>
     </Fragment>
