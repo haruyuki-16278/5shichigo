@@ -4,6 +4,9 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $api_like_id_ from "./routes/api/like/[id].ts";
+import * as $api_poem_id_ from "./routes/api/poem/[id].ts";
+import * as $api_poem_index from "./routes/api/poem/index.ts";
 import * as $index from "./routes/index.tsx";
 import * as $PoemKnob from "./islands/PoemKnob.tsx";
 import { type Manifest } from "$fresh/server.ts";
@@ -12,6 +15,9 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/api/like/[id].ts": $api_like_id_,
+    "./routes/api/poem/[id].ts": $api_poem_id_,
+    "./routes/api/poem/index.ts": $api_poem_index,
     "./routes/index.tsx": $index,
   },
   islands: {
