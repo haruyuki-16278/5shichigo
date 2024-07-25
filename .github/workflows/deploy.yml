@@ -29,6 +29,6 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "5shichigo-57go"
+          project: "57go"
           entrypoint: "main.ts"
           root: "."
