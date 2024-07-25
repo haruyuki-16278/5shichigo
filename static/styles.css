@@ -7,6 +7,49 @@
     writing-mode: vertical-rl;
     text-orientation: upright;
   }
+  .bg-checker {
+    background-size: 20px 20px;
+    background-color: var(--color-border);
+    --color-checker: rgba(90, 101, 75, 0.5);
+    --color-checker-accent: rgba(147, 148, 64, 0.5);
+    background-image:
+      linear-gradient(
+        -45deg,
+        var(--color-checker) 11%,
+        var(--color-checker-accent) 11%,
+        var(--color-checker-accent) 14%,
+        var(--color-checker) 14%,
+        var(--color-checker) 25%,
+        transparent 25%,
+        transparent 50%,
+        var(--color-checker) 50%,
+        var(--color-checker) 61%,
+        var(--color-checker-accent) 61%,
+        var(--color-checker-accent) 64%,
+        var(--color-checker) 64%,
+        var(--color-checker) 75%,
+        transparent 75%,
+        transparent
+      ),
+      linear-gradient(
+        45deg,
+        var(--color-checker) 11%,
+        var(--color-checker-accent) 11%,
+        var(--color-checker-accent) 14%,
+        var(--color-checker) 14%,
+        var(--color-checker) 25%,
+        transparent 25%,
+        transparent 50%,
+        var(--color-checker) 50%,
+        var(--color-checker) 61%,
+        var(--color-checker-accent) 61%,
+        var(--color-checker-accent) 64%,
+        var(--color-checker) 64%,
+        var(--color-checker) 75%,
+        transparent 75%,
+        transparent
+      );
+  }
 }
 
 :root {

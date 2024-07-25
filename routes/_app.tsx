@@ -8,7 +8,7 @@ export default function App({ Component }: PageProps) {
         <title>七五 | Shichigo - 七語のリズムでSNS</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body class="w-[100vw] h-[100vh] bg-[--color-white] text-v-rl overflow-hidden">
+      <body class="w-[100vw] h-[100vh] bg-checker text-v-rl overflow-hidden">
         <Component />
       </body>
     </html>

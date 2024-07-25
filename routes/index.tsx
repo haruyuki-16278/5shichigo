@@ -8,7 +8,7 @@ export default function Home() {
   const isOpenPoemDrawer = useSignal(false);
   return (
     <Fragment>
-      <header class="flex items-center h-full w-16 pt-2 pb-36 border-l-2 border-[--color-border] text-3xl font-bold">
+      <header class="flex items-center h-full w-16 py-4 border-l-2 border-[--color-border] bg-[var(--color-white)] text-3xl font-bold">
         <PoemKnob
           onClick={() => {
             console.log("clicked");
@@ -17,7 +17,7 @@ export default function Home() {
         />
         <h1 class="mt-4 mb-auto">七五</h1>
       </header>
-      <main class="flex flex-col items-center w-[calc(100vw_-_64px)] border-t-8 border-b-8 border-[--color-border] pr-4 overflow-x-scroll">
+      <main class="flex flex-col items-center w-[calc(100vw_-_64px)] h-[36em] my-auto border-[--color-border] pr-4  bg-[var(--color-white)] overflow-x-scroll">
         {hyakuninIssyu.items.map((item) => <Card item={item} />)}
       </main>
     </Fragment>
