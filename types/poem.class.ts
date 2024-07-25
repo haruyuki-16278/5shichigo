@@ -12,8 +12,8 @@ export class Poem {
     if (!data.poem || !data.by) {
       throw new Error("Invalid data");
     }
-    this.id = crypto.randomUUID();
-    this.createdAt = Date.now().toString();
+    this.id = data?.id ? data.id : crypto.randomUUID();
+    this.createdAt = data?.createdAt ? data.createdAt : Date.now().toString();
     this.likes = data?.likes ? parseInt(data.likes) : 0;
     this.poem = data.poem;
     this.by = data.by;
