@@ -21,7 +21,6 @@ export default function PoemKnob() {
 
   const onClickPoemKnob = () => {
     isOpenPoemDrawer.value = !isOpenPoemDrawer.value;
-    console.log("fire");
   };
 
   const onClickClosePoemDrawer = () => {

@@ -9,13 +9,11 @@ export const handler: Handlers = {
     for await (const poem of iterable) {
       result.push(poem.value);
     }
-    console.log(result);
     return new Response(JSON.stringify(result ?? {}));
   },
   async POST(req: Request, _ctx: FreshContext): Promise<Response> {
     try {
       const data = new Poem(await req.json());
-      console.log(data);
       const kv = await Deno.openKv();
       await kv.set([Poem.POEM_KEY, data.id], data);
       const response = {

@@ -1,26 +1,18 @@
-export interface Uta {
-  "0": string;
-  "5": string;
-  "12": string;
-  "17": string;
-  "24": string;
-  "author": string;
-}
+import LikePoemButton from "../islands/LikePoemButton.tsx";
+import { Poem } from "../types/poem.class.ts";
 
 export function Card(props: {
-  item: Uta;
+  item: Poem;
 }) {
   return (
-    <article class="flex justify-between w-full h-[80%] mr-2 p-4 border-2 border-[--color-border] rounded text-v-rl snap-center">
-      <section>
-        <p>{props.item["0"]}</p>
-        <p>{props.item["5"]}</p>
-        <p>{props.item["12"]}</p>
-        <p>{props.item["17"]}</p>
-        <p>{props.item["24"]}</p>
+    <article class="flex justify-between w-[10em] h-[32em] mr-2 p-4 border-2 border-[--color-border] rounded-2xl text-v-rl snap-center">
+      <section class="h-50">
+        {props.item.poem.split(/[\s-]/)
+          .map((part) => <p class="whitespace-nowrap text-nowrap">{part}</p>)}
       </section>
-      <section class="self-end">
-        <p>{props.item["author"]}</p>
+      <section class="self-end flex gap-4">
+        <p>{props.item.by}</p>
+        <LikePoemButton poemId={props.item.id} poemLikes={props.item.likes} />
       </section>
     </article>
   );
