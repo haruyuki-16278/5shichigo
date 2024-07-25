@@ -62,6 +62,9 @@
         transparent
       );
   }
+  .dialog-base {
+    @apply max-w-[80%] max-h-[80%] w-full h-full border-2 border-[--color-border] rounded-2xl p-8 bg-[--color-white] open:flex flex-col justify-center gap-4 backdrop:bg-black backdrop:opacity-40;
+  }
 }
 
 :root {
