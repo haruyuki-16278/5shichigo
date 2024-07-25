@@ -11,7 +11,7 @@ export function Card(props: {
   item: Uta;
 }) {
   return (
-    <article class="flex justify-between w-full h-[80%] mr-2 p-4 border-2 border-[--color-border] rounded text-v-rl">
+    <article class="flex justify-between w-full h-[80%] mr-2 p-4 border-2 border-[--color-border] rounded text-v-rl snap-center">
       <section>
         <p>{props.item["0"]}</p>
         <p>{props.item["5"]}</p>
