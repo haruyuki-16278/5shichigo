@@ -7,6 +7,18 @@
     writing-mode: vertical-rl;
     text-orientation: upright;
   }
+  .sg-button {
+    @apply px-2 py-4 border-2 bg-white rounded-full font-bold;
+    &.primary {
+      @apply border-[var(--color-primary)];
+    }
+    &.gray {
+      @apply border-[var(--color-gray)];
+    }
+    &:disabled {
+      @apply border-[var(--color-gray)];
+    }
+  }
   .bg-checker {
     background-size: 20px 20px;
     background-color: var(--color-border);
@@ -58,4 +70,7 @@
   --color-border: #6e7955;
   --color-white: #fbfaf5;
   --color-black: #2b2b2b;
+  --color-lightgray: ghostwhite;
+  --color-gray: lightgray;
+  --color-darkgray: gray;
 }
