@@ -26,7 +26,7 @@ export default function PoemKnob() {
   };
 
   const onClickSubmitPoem = async () => {
-    const haigo = localStorage.getItem("haigo");
+    const haigo = localStorage.getItem("haigo") ?? "名無し";
     const response = await fetch("/api/poem", {
       method: "POST",
       body: JSON.stringify({ poem: poemInputRef.current?.value, by: haigo }),
