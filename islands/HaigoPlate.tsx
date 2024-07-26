@@ -1,10 +1,16 @@
-import { useRef, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { Fragment } from "preact/jsx-runtime";
 
 export default function HaigoPlate() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const haigoInputRef = useRef<HTMLInputElement>(null);
-  const [haigo, setHaigo] = useState(localStorage?.getItem("haigo") ?? "");
+  const [haigo, setHaigo] = useState("");
+
+  useEffect(() => {
+    // クライアントサイドでのみ実行
+    const storedHaigo = localStorage.getItem("haigo");
+    setHaigo(storedHaigo ?? "");
+  }, []);
 
   const onClickHaigo = () => {
     dialogRef.current?.showModal();
