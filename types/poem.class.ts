@@ -10,7 +10,7 @@ export class Poem {
     data: Record<string, string>,
   ) {
     if (!data.poem || !data.by) {
-      throw new Error("Invalid data");
+      throw new Error(`Invalid data: ${JSON.stringify(data)}`);
     }
     this.id = data?.id ? data.id : crypto.randomUUID();
     this.createdAt = data?.createdAt ? data.createdAt : Date.now().toString();
