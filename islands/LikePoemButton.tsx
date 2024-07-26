@@ -1,10 +1,15 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 export default function LikePoemButton(
   props: { poemId: string; poemLikes: number },
 ) {
-  const isLikedBefore = JSON.parse(localStorage.getItem("liked-poems") || "[]");
+  const [isLikedBefore, setIsLikedBefore] = useState([] as string[]);
   const [isLiked, setIsLiked] = useState(isLikedBefore.includes(props.poemId));
+
+  useEffect(() => {
+    setIsLikedBefore(JSON.parse(localStorage.getItem("liked-poems") || "[]"));
+  }, []);
+
   const onClick = async () => {
     if (isLiked || isLikedBefore) {
       return;
