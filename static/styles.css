@@ -10,13 +10,13 @@
   .sg-button {
     @apply px-2 py-4 border-2 bg-white rounded-full font-bold;
     &.primary {
-      @apply border-[var(--color-primary)];
+      @apply border-[var(--color-primary)] text-[var(--color-primary)];
     }
     &.gray {
-      @apply border-[var(--color-gray)];
+      @apply border-[var(--color-darkgray)] text-[var(--color-darkgray)];
     }
     &:disabled {
-      @apply border-[var(--color-gray)];
+      @apply border-[var(--color-gray)] bg-[var(--color-gray)] text-[var(--color-white)];
     }
   }
   .bg-checker {

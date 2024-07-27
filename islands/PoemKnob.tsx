@@ -79,7 +79,7 @@ export default function PoemKnob() {
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-bold">詩を詠む</h2>
           <button
-            class="sg-button gray w-12 h-12 rounded-full self-end grid place-content-center"
+            class="sg-button primary w-12 h-12 rounded-full self-end grid place-content-center"
             onClick={() => poemImageInputRef.current?.click()}
           >
             <input
@@ -92,6 +92,7 @@ export default function PoemKnob() {
             <svg
               width="16"
               height="16"
+              class="fill-[var(--color-primary)]"
             >
               <use xlink:href="#icon-image" />
             </svg>
