@@ -1,8 +1,9 @@
 import { Head } from "$fresh/runtime.ts";
+import { Fragment } from "preact/jsx-runtime";
 
 export default function Error404() {
   return (
-    <>
+    <Fragment>
       <Head>
         <title>四〇四 お探しのページ なかったよ | 七五</title>
       </Head>
@@ -16,6 +17,6 @@ export default function Error404() {
           </a>
         </div>
       </div>
-    </>
+    </Fragment>
   );
 }
