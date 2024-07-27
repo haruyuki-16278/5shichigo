@@ -4,7 +4,7 @@ export class Poem {
   poem: string;
   by: string;
   likes: number;
-  imageB64?: string;
+  image?: string;
   createdAt?: string;
   constructor(
     data: Record<string, string>,
@@ -17,8 +17,6 @@ export class Poem {
     this.likes = data?.likes ? parseInt(data.likes) : 0;
     this.poem = data.poem;
     this.by = data.by;
-    if (data.imageB64) {
-      this.imageB64 = data.imageB64;
-    }
+    this.image = data?.image ? data.image : undefined;
   }
 }

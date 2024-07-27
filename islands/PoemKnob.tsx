@@ -1,6 +1,7 @@
 import { useSignal } from "@preact/signals";
 import { Fragment } from "preact/jsx-runtime";
 import { useRef, useState } from "preact/hooks";
+import { ImageService } from "../services/image.service.ts";
 
 export default function PoemKnob() {
   const isOpenPoemDrawer = useSignal(false);
@@ -8,6 +9,7 @@ export default function PoemKnob() {
   const poemInputRef = useRef<HTMLInputElement>(null);
   const poemImageInputRef = useRef<HTMLInputElement>(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [resizedImage, setResizedImage] = useState("");
 
   const onClickPoemKnob = () => {
     isOpenPoemDrawer.value = !isOpenPoemDrawer.value;
@@ -29,7 +31,11 @@ export default function PoemKnob() {
     const haigo = localStorage.getItem("haigo") ?? "名無し";
     const response = await fetch("/api/poem", {
       method: "POST",
-      body: JSON.stringify({ poem: poemInputRef.current?.value, by: haigo }),
+      body: JSON.stringify({
+        poem: poemInputRef.current?.value,
+        by: haigo,
+        image: resizedImage !== "" ? resizedImage : undefined,
+      }),
     });
     if (response.ok) {
       isOpenPoemDrawer.value = false;
@@ -48,6 +54,14 @@ export default function PoemKnob() {
     }
     setErrorMessage("");
     isOpenPoemDrawer.value = false;
+  };
+  const onChangePoemImage = async (event: Event) => {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file) {
+      const resizedImage = await ImageService.resize(file, 160, 442);
+      console.log(resizedImage);
+      setResizedImage(resizedImage);
+    }
   };
 
   return (
@@ -73,6 +87,7 @@ export default function PoemKnob() {
               accept="image/*"
               class="hidden"
               ref={poemImageInputRef}
+              onChange={onChangePoemImage}
             />
             <svg
               width="16"
@@ -87,6 +102,14 @@ export default function PoemKnob() {
           placeholder="一句詠む ここタップして 気のままに"
           type="text"
           ref={poemInputRef}
+          style={resizedImage &&
+            {
+              backgroundImage: `url(${resizedImage})`,
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundBlendMode: "color",
+            }}
         />
         {errorMessage && <p class="text-[--color-error]">{errorMessage}</p>}
         <div class="flex justify-end gap-2">
