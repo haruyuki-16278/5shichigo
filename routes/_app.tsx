@@ -1,5 +1,7 @@
 import { type PageProps } from "$fresh/server.ts";
 import { Header } from "../components/Header.tsx";
+import { Sprites } from "../components/Sprites.tsx";
+
 export default function App({ Component }: PageProps) {
   return (
     <html class="w-[100vw] h-[100svh]">
@@ -10,6 +12,7 @@ export default function App({ Component }: PageProps) {
         <link rel="stylesheet" href="/styles.css" />
       </head>
       <body class="w-[100vw] h-[100svh] bg-checker text-v-rl flex flex-col items-center overflow-hidden">
+        <Sprites />
         <Header />
         <Component />
       </body>
