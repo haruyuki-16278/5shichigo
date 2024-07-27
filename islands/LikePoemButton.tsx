@@ -53,7 +53,7 @@ export default function LikePoemButton(
           <svg
             width="16"
             height="16"
-            class="fill-[var(--color-gray)]"
+            class="fill-[var(--color-darkgray)]"
           >
             <use xlink:href="#icon-heart" />
           </svg>
