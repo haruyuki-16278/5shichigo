@@ -24,7 +24,7 @@ export default function Home(props: PageProps<Poem[]>) {
         ? props.data.sort((a, b) => {
           const aCreatedAt = Number(a.createdAt);
           const bCreatedAt = Number(b.createdAt);
-          return aCreatedAt - bCreatedAt;
+          return bCreatedAt - aCreatedAt;
         }).map((item) => <Card item={item} />)
         : (
           <div class="w-[calc(100vw_-_128px)] h-[32em] text-[var(--color-gray)] font-bold grid place-content-center">
