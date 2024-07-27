@@ -5,9 +5,9 @@ export function Card(props: {
   item: Poem;
 }) {
   return (
-    <a class="h-full" href={`/poem/${props.item.id}`}>
+    <a class="h-full ml-4 rounded-2xl" href={`/poem/${props.item.id}`}>
       <article
-        class="flex flex-col justify-between min-w-[10em] h-[min(32em,calc(100% - 2em))] ml-4 p-4 border-2 border-[--color-border] rounded-2xl text-v-rl snap-center overflow-auto"
+        class="flex flex-col justify-between min-w-[10em] h-[min(32em,calc(100% - 2em))] p-4 border-2 border-[--color-border] rounded-2xl text-v-rl snap-center overflow-auto"
         style={props.item.image &&
           {
             backgroundImage: `url(${props.item.image})`,
