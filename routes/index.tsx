@@ -21,7 +21,11 @@ export default function Home(props: PageProps<Poem[]>) {
   return (
     <main class="main-base flex flex-col items-center overflow-x-scroll snap-mandatory snap-x overflow-y-hidden">
       {props.data.length > 0
-        ? props.data.map((item) => <Card item={item} />)
+        ? props.data.sort((a, b) => {
+          const aCreatedAt = Number(a.createdAt);
+          const bCreatedAt = Number(b.createdAt);
+          return aCreatedAt - bCreatedAt;
+        }).map((item) => <Card item={item} />)
         : (
           <div class="w-[calc(100vw_-_128px)] h-[32em] text-[var(--color-gray)] font-bold grid place-content-center">
             まだ詠まれた詩がないよ
