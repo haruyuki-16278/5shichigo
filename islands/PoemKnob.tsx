@@ -6,7 +6,7 @@ import { ImageService } from "../services/image.service.ts";
 export default function PoemKnob() {
   const isOpenPoemDrawer = useSignal(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const poemInputRef = useRef<HTMLInputElement>(null);
+  const poemInputRef = useRef<HTMLTextAreaElement>(null);
   const poemImageInputRef = useRef<HTMLInputElement>(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [resizedImage, setResizedImage] = useState("");
@@ -98,10 +98,9 @@ export default function PoemKnob() {
             </svg>
           </button>
         </div>
-        <input
-          class="w-[10em] h-[32em] border-[--color-border] border-2 p-8 rounded-2xl"
-          placeholder="一句詠む ここタップして 気のままに"
-          type="text"
+        <textarea
+          class="w-[10em] h-[32em] border-[var(--color-border)] border-2 p-4 rounded-2xl"
+          placeholder={"一句詠む\nここタップして\n気のままに"}
           ref={poemInputRef}
           style={resizedImage &&
             {
