@@ -9,6 +9,9 @@ export default function PoemKnob() {
   const poemImageInputRef = useRef<HTMLInputElement>(null);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const onClickPoemKnob = () => {
+    isOpenPoemDrawer.value = !isOpenPoemDrawer.value;
+  };
   isOpenPoemDrawer.subscribe((value) => {
     if (dialogRef.current) {
       if (value) {
@@ -22,10 +25,6 @@ export default function PoemKnob() {
     }
   });
 
-  const onClickPoemKnob = () => {
-    isOpenPoemDrawer.value = !isOpenPoemDrawer.value;
-  };
-
   const onClickSubmitPoem = async () => {
     const haigo = localStorage.getItem("haigo") ?? "名無し";
     const response = await fetch("/api/poem", {
@@ -34,13 +33,20 @@ export default function PoemKnob() {
     });
     if (response.ok) {
       isOpenPoemDrawer.value = false;
+      setErrorMessage("");
       location.reload();
     } else {
       setErrorMessage("詩を詠むことができませんでした。");
     }
   };
-
   const onClickClosePoemDrawer = () => {
+    if (poemInputRef.current) {
+      poemInputRef.current.value = "";
+    }
+    if (poemImageInputRef.current) {
+      poemImageInputRef.current.value = "";
+    }
+    setErrorMessage("");
     isOpenPoemDrawer.value = false;
   };
 
@@ -54,7 +60,7 @@ export default function PoemKnob() {
       </button>
       <dialog
         ref={dialogRef}
-        class="dialog-base"
+        class="dialog-base h-fit max-h-fit w-fit max-w-fit"
       >
         <div class="flex items-center justify-between">
           <h2 class="text-xl font-bold">詩を詠む</h2>
@@ -77,12 +83,12 @@ export default function PoemKnob() {
           </button>
         </div>
         <input
-          class="border-[--color-border] border-2 p-8 rounded-2xl"
+          class="w-[10em] h-[32em] border-[--color-border] border-2 p-8 rounded-2xl"
           placeholder="一句詠む ここタップして 気のままに"
           type="text"
           ref={poemInputRef}
         />
-        {errorMessage && <p class="text-[--color-secondary]">{errorMessage}</p>}
+        {errorMessage && <p class="text-[--color-error]">{errorMessage}</p>}
         <div class="flex justify-end gap-2">
           <button
             class="sg-button primary h-fit self-end"
