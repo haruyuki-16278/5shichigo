@@ -8,7 +8,7 @@
     text-orientation: upright;
   }
   .sg-button {
-    @apply px-2 py-4 border-2 bg-white rounded-full font-bold;
+    @apply px-2 py-4 border-2 bg-white rounded-full font-bold ;
     &.primary {
       @apply border-[var(--color-primary)] text-[var(--color-primary)];
     }
@@ -80,4 +80,10 @@
   --color-lightgray: ghostwhite;
   --color-gray: lightgray;
   --color-darkgray: gray;
+}
+
+* {
+  &:focus {
+    @apply outline-double outline-offset-2 outline-2 outline-[var(--color-primary)];
+  }
 }
