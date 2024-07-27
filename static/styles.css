@@ -65,6 +65,9 @@
   .dialog-base {
     @apply max-w-[80%] max-h-[80%] w-full h-full border-2 border-[--color-border] rounded-2xl p-8 bg-[--color-white] open:flex flex-col justify-center gap-4 backdrop:bg-black backdrop:opacity-40;
   }
+  .main-base {
+    @apply w-[calc(100vw_-_64px)] h-[min(36em,80%)] border-[--color-border] pr-4 py-8 bg-[var(--color-white)] 
+  }
 }
 
 :root {
