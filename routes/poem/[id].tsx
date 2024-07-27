@@ -13,7 +13,7 @@ export const handler: Handlers<Poem | null> = {
 
 export default function SinglePoem(props: PageProps<Poem | null>) {
   return (
-    <main class="main-base grid place-content-center">
+    <main class="main-base flex flex-col items-center justify-center">
       {props.data !== null
         ? <Card item={props.data}></Card>
         : (
