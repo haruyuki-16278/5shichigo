@@ -6,8 +6,6 @@ export default function LikePoemButton(
   const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem("liked-poems") ?? "[]"));
-    console.log(props.poemId);
     setIsLiked(
       JSON.parse(localStorage.getItem("liked-poems") ?? "[]").includes(
         props.poemId,
