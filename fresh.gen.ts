@@ -8,6 +8,7 @@ import * as $api_like_id_ from "./routes/api/like/[id].ts";
 import * as $api_poem_id_ from "./routes/api/poem/[id].ts";
 import * as $api_poem_index from "./routes/api/poem/index.ts";
 import * as $index from "./routes/index.tsx";
+import * as $poem_id_ from "./routes/poem/[id].tsx";
 import * as $HaigoPlate from "./islands/HaigoPlate.tsx";
 import * as $LikePoemButton from "./islands/LikePoemButton.tsx";
 import * as $PoemKnob from "./islands/PoemKnob.tsx";
@@ -21,6 +22,7 @@ const manifest = {
     "./routes/api/poem/[id].ts": $api_poem_id_,
     "./routes/api/poem/index.ts": $api_poem_index,
     "./routes/index.tsx": $index,
+    "./routes/poem/[id].tsx": $poem_id_,
   },
   islands: {
     "./islands/HaigoPlate.tsx": $HaigoPlate,
