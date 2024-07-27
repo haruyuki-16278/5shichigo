@@ -13,24 +13,28 @@ export default function LikePoemButton(
     );
   }, []);
 
-  const onClick = async () => {
-    console.log("fire");
-    if (isLiked) {
-      return;
-    }
+  const onClick = async (event: MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+
     const response = await fetch(`/api/like/${props.poemId}`, {
-      method: "POST",
+      method: isLiked ? "DELETE" : "POST",
     });
     if (response.ok) {
-      setIsLiked(!isLiked);
-      props.poemLikes++;
+      props.poemLikes += isLiked ? -1 : 1;
+      const currentLikedPoems = JSON.parse(
+        localStorage.getItem("liked-poems") ?? "[]",
+      ) as string[];
       localStorage.setItem(
         "liked-poems",
-        JSON.stringify([
-          ...JSON.parse(localStorage.getItem("liked-poems") ?? "[]"),
-          props.poemId,
-        ]),
+        JSON.stringify(
+          isLiked ? currentLikedPoems.filter((v) => v !== props.poemId) : [
+            ...currentLikedPoems,
+            props.poemId,
+          ],
+        ),
       );
+      setIsLiked(!isLiked);
     }
   };
   return (
