@@ -1,0 +1,16 @@
+{
+  "name": "七五 | Shichigo",
+  "short_name": "Shichigo",
+  "description": "縦書きで 七五のリズムで 詩を詠む",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#972806",
+  "background_color": "#6e7955"
+}

@@ -10,6 +10,7 @@ export default function App({ Component }: PageProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>七五 | Shichigo - 七語のリズムでSNS</title>
         <link rel="stylesheet" href="/styles.css" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body class="w-[100vw] h-[100svh] bg-checker text-v-rl flex flex-col items-center overflow-hidden">
         <Sprites />
