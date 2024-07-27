@@ -4,22 +4,16 @@ export default function Error404() {
   return (
     <>
       <Head>
-        <title>404 - Page not found</title>
+        <title>四〇四 お探しのページ なかったよ | 七五</title>
       </Head>
-      <div class="px-4 py-8 mx-auto bg-[#86efac]">
-        <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-          <img
-            class="my-6"
-            src="/logo.svg"
-            width="128"
-            height="128"
-            alt="the Fresh logo: a sliced lemon dripping with juice"
-          />
-          <h1 class="text-4xl font-bold">404 - Page not found</h1>
-          <p class="my-4">
-            The page you were looking for doesn't exist.
-          </p>
-          <a href="/" class="underline">Go back home</a>
+      <div class="main-base grid place-content-center">
+        <div class="w-full flex flex-col items-center justify-center gap-8 h-full">
+          <h2 class="text-2xl text-bold text-[var(--color-darkgray)]">
+            四〇四 お探しのページ なかったよ
+          </h2>
+          <a href="/" class="sg-button gray self-end">
+            ここからトップに もどってちょうだい
+          </a>
         </div>
       </div>
     </>
