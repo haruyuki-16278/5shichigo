@@ -17,6 +17,9 @@ export default function HaigoPlate() {
   };
 
   const onClickSubmit = () => {
+    if (haigoInputRef.current?.value === "") {
+      return;
+    }
     localStorage.setItem("haigo", haigoInputRef.current?.value ?? "名無し");
     setHaigo(haigoInputRef.current?.value ?? "名無し");
     dialogRef.current?.close();
