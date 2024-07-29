@@ -10,11 +10,11 @@ export function Card(props: {
         class="flex flex-col justify-between min-w-[10em] h-[min(32em,calc(100% - 2em))] p-4 border-2 border-[--color-border] rounded-2xl text-v-rl snap-center overflow-auto"
         style={props.item.image &&
           {
-            backgroundImage: `url(${props.item.image})`,
             backgroundColor: "rgba(255, 255, 255, 0.8)",
+            backgroundImage: `url(${props.item.image})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundBlendMode: "color",
+            backgroundBlendMode: "screen",
           }}
       >
         <section class="h-50">
